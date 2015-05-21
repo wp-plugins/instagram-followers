@@ -80,7 +80,7 @@
 					                </span>
 				              </label>
 				              <input type="hidden" name="user" id="otherUserId" placeholder="Start typing a username to search" value="<?php print $details->user_id ?>">
-				              <input class="widefat" type="text" name="username" id="otherUser" placeholder="Start typing a username to search" value="<?php print htmlspecialchars($details->username) ?>">
+				              <input class="widefat" type="text" name="username" id="otherUser" placeholder="Start typing a username to search" value="<?php print htmlspecialchars($details->username) ?>" autocomplete="off">
 					        </p>
 				            <div id="otherUserResults"></div>
 				    	</div>
