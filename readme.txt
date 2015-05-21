@@ -32,7 +32,7 @@ Installation as usual.
 4. Click "Connect to Instagram" and follow the instructions.
 5. Enjoy and rate!
 
-FOr more installation options please refer to:
+For more installation options please refer to:
 http://wordpress.ink361.com/help/followers/installing
 
 == Changelog ==
