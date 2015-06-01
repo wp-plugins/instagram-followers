@@ -17,7 +17,15 @@
 				<input type="hidden" name="verbose"		value="<?php print htmlspecialchars($details->verbose) ?>">
 				<input type="hidden" name="powered"		value="<?php print htmlspecialchars($details->powered) ?>">
 				<input type="hidden" name="cache_time"	value="<?php print htmlspecialchars($details->cache_timeout) ?>">
-			</div>
+			</div>						
+			
+			<?php
+				$customTitle = 'Instagram Followers Widget';
+				
+				if ($details->username !== '' && $details->username) {
+					$customTitle = 'Instagram Followers: ' . $details->username;
+				}
+			?>
 			
 			<div id="followersSetupForm<?php print $instance['db_id'] ?>" style="display: none;">
 				<?php require('formHeader.php') ?>
@@ -237,6 +245,15 @@
 		}
 		?>
 		<script>
+			function customiseFollowersTitle<?php print $instance['db_id'] ?>(title) {
+		      try {
+		        var elem  = jQuery('#followersSetupButton<?php print $instance['db_id'] ?>');
+		        elem.parent().parent().parent().parent().find('h4').html(title);
+		      } catch(e) {
+		        
+		      }
+		    }
+			
 		    function saveFollowersPlugin<?php print $instance['db_id'] ?>(close) {            
 		      if (copyFollowersFields<?php print $instance['db_id'] ?>()) {
 		        //jQuery('#followersSetupButton<?php print $instance['db_id'] ?>').parent().parent().find('input[type=submit]').click();
@@ -451,7 +468,10 @@
 		          jQuery('#otherUserResults').html('<div class="noResults">Nobody found</div>');
 		          jQuery('#otherUserResults').addClass('visible');                         
 		        }
-		      }        
+		      }
+			  
+			   //customise with our title
+      		   customiseFollowersTitle<?php print $instance['db_id'] ?>('<?php print $customTitle ?>');         
 		    });
   		</script>
 		<?php
