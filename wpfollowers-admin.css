@@ -394,3 +394,125 @@ li.tabber.error a {
 .wpfollowers_error_description {
         margin-bottom: 0px !important;
 }
+
+
+.instagram_followers_activate {
+	border: 1px solid #111;
+	border-radius: 3px;
+	background: url('img/setup-bg.png') no-repeat center right;
+	background-size: cover;			
+	padding: 5px 15px 5px 5px;
+	margin: 15px 0px;
+	position: relative;	
+	color: #FFF;					
+}
+
+.instagram_followers_activate .instagram_followers_button {
+	background: #517FA4; 
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	padding: 9px 0px 8px 0px;
+	color: #FFF;
+	border-radius: 3px;
+	border: 5px solid rgba(255,255,255,0.3);
+	width: 266px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.instagram_followers_activate .instagram_followers_bg {
+	background: url('img/logo-white.png') no-repeat center right;
+	background-size: auto 75%;
+}
+
+.instagram_followers_activate .instagram_followers_description {
+	display: inline-block;
+	font-size: 15px;
+	padding-left: 35px;
+}
+
+.instagram_followers_setup_instructions {
+	position: relative;
+}
+
+.instagram_followers_setup_img {
+	overflow: hidden;
+	position: absolute;
+	width: 45%;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	height: 365px;
+	transition: width 0.4s ease;
+	z-index: 2;
+	border: 1px solid #DDD;
+	border-radius: 3px;
+}
+
+.instagram_followers_setup_img img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	height: 380px;
+}
+
+.instagram_followers_setup_img:hover {
+	width: 100%;
+}
+
+.instagram_followers_setup_img_message {
+	z-index: 10;
+	opacity: 1;
+	background: rgba(0,0,0,0.6);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;	
+	display: table-cell;
+	text-align: center;	
+	color: #FFF;
+	transition: opacity 0.4s ease;
+}
+
+.instagram_followers_setup_img_message div {
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	text-align: center;
+	left: 0px;
+	right: 0px;
+}
+
+.instagram_followers_setup_img:hover .instagram_followers_setup_img_message {
+	opacity: 0;
+}
+
+.instagram_followers_setup_text {
+	z-index: 1;
+	position: absolute;
+	left: 48%;
+	right: 0px;
+	top: 0px;
+	height: 380px;
+}
+
+.instagram_followers_setup_text p:first-of-type {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.instagram_followers_setup_text a.instagram_followers_setup_button {
+	background: #517FA4; 
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	padding: 9px 0px 8px 0px;
+	color: #FFF;
+	border-radius: 3px;			
+	cursor: pointer;
+	text-decoration: none;	
+	display: block;
+}

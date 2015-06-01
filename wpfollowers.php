@@ -3,7 +3,7 @@
 	Plugin Name: Instagram Followers
 	Plugin URI: http://wordpress.ord/extend/plugins/instagram-followers
 	Description: Realtime Instagram followers widget
-	Version: 1.0.2
+	Version: 1.0.3
 	Author: jbenders
 	Author URI: http://ink361.com/
 */
@@ -18,9 +18,25 @@ function wp_instagram_followers_admin_register_head() {
 
 add_action('admin_head', 'wp_instagram_followers_admin_register_head');
 add_action('widgets_init', 'load_wp_instagram_followers');
+add_action('admin_notices', 'wpinstagram_followers_show_instructions');
 
 function load_wp_instagram_followers() {
 	register_widget('WPInstagramFollowersWidget');
+}
+
+function wpinstagram_followers_show_instructions() {
+	global $wpdb;
+	
+	$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM igfollowers_widget"));
+	
+	if (sizeof($results) == 0) {	
+		$url = plugins_url('wpfollowers-admin.css', __FILE__); 
+		wp_enqueue_style('wpfollowers-admin.css', $url);
+		wp_enqueue_script("jquery");
+		wp_enqueue_script("lightbox", plugin_dir_url(__FILE__)."js/lightbox.js", Array('jquery'), null);
+		
+		require(plugin_dir_path(__FILE__) . 'templates/setupInstructions.php');		
+	}
 }
 
 class WPInstagramFollowersWidget extends WP_Widget {
