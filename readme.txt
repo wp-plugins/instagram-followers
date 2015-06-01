@@ -9,11 +9,11 @@ Show off a realtime feed of your Instagram accounts latest followers.
 
 == Description ==
 
-A simple widget allowing you to show the latest followers of an Instagram account.
+Show off your latest Instagram followers with our simple widget for Wordpress. Our tool is easy to use and can be added to any of your widget areas on your website or blog.
 
-To get started, drag and drop the Instagram Followers Widget into one of your widget areas and then click on the Connect To Instagram button.
+To get started, download and activate our widget from this page or within the Wordpress plugin interface. Drag and drop the Instagram Followers Widget into one of your widget areas and then click on the Connect To Instagram button.
 
-You can find your widget management area under your Appearance menu.
+You can set up your widget in the management area under your Appearance menu.
 
 == Screenshots ==
 
