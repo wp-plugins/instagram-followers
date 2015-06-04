@@ -3,7 +3,7 @@ Contributors: jbenders
 Tags: widgets, instagram, followers
 Requires at least: 3.0
 Tested up to: 4.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Show off a realtime feed of your Instagram accounts latest followers.
 
@@ -36,6 +36,11 @@ For more installation options please refer to:
 http://wordpress.ink361.com/help/followers/installing
 
 == Changelog ==
+
+= 1.0.4 =
+* Added fix for warning on widget check.
+* Added review bar.
+* Removed joe editor backup files from repo.
 
 = 1.0.3 =
 * Added configuration guide notifications to make installation easier.
