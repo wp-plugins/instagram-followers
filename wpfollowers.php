@@ -3,7 +3,7 @@
 	Plugin Name: Instagram Followers
 	Plugin URI: http://wordpress.ord/extend/plugins/instagram-followers
 	Description: Realtime Instagram followers widget
-	Version: 1.0.4
+	Version: 1.0.5
 	Author: jbenders
 	Author URI: http://ink361.com/
 */

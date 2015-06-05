@@ -11,8 +11,8 @@
 			}	
 		}	
 		
-		if (!window.spfollowers_twtshare) {
-			window.wpsfollowers_twtshare = function(page) {      
+		if (!window.wpfollowers_twtshare) {
+			window.wpfollowers_twtshare = function(page) {      
 	        	window.open('https://www.twitter.com/share?text=' + escape('Sharing these my followers with you!') + '&via=ink361&url=' + escape(page), 'Share on Twitter', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=626, height=436, top=' + ((screen.height / 2) - 313) + ', left=' + ((screen.width/2) - 218));
 			}				
 		}		

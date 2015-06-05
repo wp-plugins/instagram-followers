@@ -89,6 +89,7 @@
 				              </label>
 				              <input type="hidden" name="user" id="otherUserId" placeholder="Start typing a username to search" value="<?php print $details->user_id ?>">
 				              <input class="widefat" type="text" name="username" id="otherUser" placeholder="Start typing a username to search" value="<?php print htmlspecialchars($details->username) ?>" autocomplete="off">
+							  <div class="wpfollowers_widget_loader"></div>
 					        </p>
 				            <div id="otherUserResults"></div>
 				    	</div>
@@ -284,14 +285,15 @@
 		      });
 		
 		      //our dropdown search
-		      jQuery('#otherUser').keyup(function(event) {
-		        setTimeout(function() {
+		      jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUser').keyup(function(event) {
+			  	clearTimeout(window.searchTimeout);
+		        window.searchTimeout = setTimeout(function() {
 		          searchUserHandler<?php print $instance['db_id'] ?>();
 		        }, 200);
 		      });
-		      jQuery('#otherUser').blur(function(event) {
+		      jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUser').blur(function(event) {
 		        setTimeout(function() {
-		          jQuery('#otherUserResults').removeClass('visible');
+		          jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserResults').removeClass('visible');
 		        }, 250);
 		      });
 		    }
@@ -425,9 +427,11 @@
 		    
 		      if (!window.searchUserHandler<?php print $instance['db_id'] ?>) {
 		        window.searchUserHandler<?php print $instance['db_id'] ?> = function() {
-		          var keywords = jQuery('#otherUser').val();
+		          var keywords = jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUser').val();
 		                 
 		          if (keywords.length > 2) {
+					jQuery('#formFollowers<?php print $instance['db_id'] ?> #anotherUser').addClass('wploading');
+					  
 		            jQuery.ajax({
 		              url	: 'https://api.instagram.com/v1/users/search',
 		              jsonp 	: "callback",
@@ -438,35 +442,37 @@
 		              },
 		              success	: function(response) {
 		                //reset the id
-		                jQuery('#otherUserId').val('');
+		                jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserId').val('');
 		                                   
 		                if (response && response.data && response.data.length > 0) {
 		                  var html = '';
 		                  for (var i = 0; i < response.data.length; i++) {
 		                    html += '<div class="result" data-id="' + response.data[i].id + '" data-name="' + response.data[i].username + '">' + response.data[i].username + '</div>';
 		                  }
-		                  jQuery('#otherUserResults').html(html);
+		                  jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserResults').html(html);
 		                       
-		                  jQuery('#otherUserResults').find('.result').click(function() {
-		                    jQuery('#otherUser').val(jQuery(this).attr('data-name'));
-		                    jQuery('#otherUserId').val(jQuery(this).attr('data-id'));
+		                  jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserResults').find('.result').click(function() {
+		                    jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUser').val(jQuery(this).attr('data-name'));
+		                    jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserId').val(jQuery(this).attr('data-id'));
 		                  }); 
 		                  
-		                  jQuery('#otherUserResults').addClass('visible');
+		                  jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserResults').addClass('visible');
 		                } else {
 		                  //show no users
-		                  noUsersFound();
-		                }              
+		                  noUsersFound<?php print $instance['db_id'] ?>();
+		                }   
+						
+						jQuery('#formFollowers<?php print $instance['db_id'] ?> #anotherUser').removeClass('wploading');           
 		              }
 		            });
 		          }    
 		        }
 		      }
 		    
-		      if (!window.noUsersFound) {
-		        window.noUsersFound = function() {
-		          jQuery('#otherUserResults').html('<div class="noResults">Nobody found</div>');
-		          jQuery('#otherUserResults').addClass('visible');                         
+		      if (!window.noUsersFound<?php print $instance['db_id'] ?>) {
+		        window.noUsersFound<?php print $instance['db_id'] ?> = function() {
+		          jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserResults').html('<div class="noResults">Nobody found</div>');
+		          jQuery('#formFollowers<?php print $instance['db_id'] ?> #otherUserResults').addClass('visible');                         
 		        }
 		      }
 			  
